@@ -362,28 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiTestTest extends Schema.SingleType {
-  collectionName: 'tests';
-  info: {
-    singularName: 'test';
-    pluralName: 'tests';
-    displayName: 'test';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    test: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::test.test', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::test.test', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -699,6 +677,134 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiMriImageMriImage extends Schema.CollectionType {
+  collectionName: 'mri_images';
+  info: {
+    singularName: 'mri-image';
+    pluralName: 'mri-images';
+    displayName: 'MRIImage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media & Attribute.Required;
+    result: Attribute.Enumeration<['N', 'LDD', 'ADD', 'MDD']>;
+    problemReported: Attribute.Boolean;
+    reportedProblemSolution: Attribute.Enumeration<['N', 'LDD', 'ADD', 'MDD']>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::mri-image.mri-image',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::mri-image.mri-image',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPatientPatient extends Schema.CollectionType {
+  collectionName: 'patients';
+  info: {
+    singularName: 'patient';
+    pluralName: 'patients';
+    displayName: 'Patient';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    diagnosed: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::patient.patient',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::patient.patient',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTmjdTestTmjdTest extends Schema.CollectionType {
+  collectionName: 'tmjd_tests';
+  info: {
+    singularName: 'tmjd-test';
+    pluralName: 'tmjd-tests';
+    displayName: 'TMJDTest';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cl_image: Attribute.Relation<
+      'api::tmjd-test.tmjd-test',
+      'oneToOne',
+      'api::mri-image.mri-image'
+    >;
+    cr_image: Attribute.Relation<
+      'api::tmjd-test.tmjd-test',
+      'oneToOne',
+      'api::mri-image.mri-image'
+    >;
+    scl_image: Attribute.Relation<
+      'api::tmjd-test.tmjd-test',
+      'oneToOne',
+      'api::mri-image.mri-image'
+    >;
+    scr_image: Attribute.Relation<
+      'api::tmjd-test.tmjd-test',
+      'oneToOne',
+      'api::mri-image.mri-image'
+    >;
+    sol_image: Attribute.Relation<
+      'api::tmjd-test.tmjd-test',
+      'oneToOne',
+      'api::mri-image.mri-image'
+    >;
+    sor_image: Attribute.Relation<
+      'api::tmjd-test.tmjd-test',
+      'oneToOne',
+      'api::mri-image.mri-image'
+    >;
+    patient: Attribute.Relation<
+      'api::tmjd-test.tmjd-test',
+      'oneToOne',
+      'api::patient.patient'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::tmjd-test.tmjd-test',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::tmjd-test.tmjd-test',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -709,13 +815,15 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::test.test': ApiTestTest;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::mri-image.mri-image': ApiMriImageMriImage;
+      'api::patient.patient': ApiPatientPatient;
+      'api::tmjd-test.tmjd-test': ApiTmjdTestTmjdTest;
     }
   }
 }

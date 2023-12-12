@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tmjd_tests",
+  "info": {
+    "singularName": "tmjd-test",
+    "pluralName": "tmjd-tests",
+    "displayName": "TMJDTest"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "cl_image": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::mri-image.mri-image"
+    },
+    "cr_image": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::mri-image.mri-image"
+    },
+    "scl_image": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::mri-image.mri-image"
+    },
+    "scr_image": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::mri-image.mri-image"
+    },
+    "sol_image": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::mri-image.mri-image"
+    },
+    "sor_image": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::mri-image.mri-image"
+    },
+    "patient": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::patient.patient"
+    }
+  }
+}
