@@ -4,7 +4,8 @@
   "info": {
     "singularName": "mri-image",
     "pluralName": "mri-images",
-    "displayName": "MRIImage"
+    "displayName": "MRIImage",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,15 +13,15 @@
   "pluginOptions": {},
   "attributes": {
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     },
     "result": {
       "type": "enumeration",
@@ -42,6 +43,18 @@
         "ADD",
         "MDD"
       ]
+    },
+    "valueN": {
+      "type": "decimal"
+    },
+    "valueLDD": {
+      "type": "decimal"
+    },
+    "valueADD": {
+      "type": "decimal"
+    },
+    "valueMDD": {
+      "type": "decimal"
     }
   }
 }

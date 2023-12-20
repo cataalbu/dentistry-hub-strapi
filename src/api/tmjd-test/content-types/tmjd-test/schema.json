@@ -4,7 +4,8 @@
   "info": {
     "singularName": "tmjd-test",
     "pluralName": "tmjd-tests",
-    "displayName": "TMJDTest"
+    "displayName": "TMJDTest",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -45,6 +46,15 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::patient.patient"
+    },
+    "result": {
+      "type": "enumeration",
+      "enum": [
+        "N",
+        "LDD",
+        "ADD",
+        "MDD"
+      ]
     }
   }
 }
