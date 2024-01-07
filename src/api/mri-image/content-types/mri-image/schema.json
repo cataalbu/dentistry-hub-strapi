@@ -45,16 +45,16 @@
       ]
     },
     "valueN": {
-      "type": "decimal"
+      "type": "float"
     },
     "valueLDD": {
-      "type": "decimal"
+      "type": "float"
     },
     "valueADD": {
-      "type": "decimal"
+      "type": "float"
     },
     "valueMDD": {
-      "type": "decimal"
+      "type": "float"
     }
   }
 }

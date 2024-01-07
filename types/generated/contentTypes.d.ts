@@ -693,10 +693,10 @@ export interface ApiMriImageMriImage extends Schema.CollectionType {
     result: Attribute.Enumeration<['N', 'LDD', 'ADD', 'MDD']>;
     problemReported: Attribute.Boolean;
     reportedProblemSolution: Attribute.Enumeration<['N', 'LDD', 'ADD', 'MDD']>;
-    valueN: Attribute.Decimal;
-    valueLDD: Attribute.Decimal;
-    valueADD: Attribute.Decimal;
-    valueMDD: Attribute.Decimal;
+    valueN: Attribute.Float;
+    valueLDD: Attribute.Float;
+    valueADD: Attribute.Float;
+    valueMDD: Attribute.Float;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -721,13 +721,14 @@ export interface ApiPatientPatient extends Schema.CollectionType {
     singularName: 'patient';
     pluralName: 'patients';
     displayName: 'Patient';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     name: Attribute.String;
-    diagnosed: Attribute.Boolean;
+    CNP: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "patient",
     "pluralName": "patients",
-    "displayName": "Patient"
+    "displayName": "Patient",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,8 +15,8 @@
     "name": {
       "type": "string"
     },
-    "diagnosed": {
-      "type": "boolean"
+    "CNP": {
+      "type": "string"
     }
   }
 }
